@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:github_repos_starred/view/homepage.dart';
 import 'package:provider/provider.dart';
-import 'controller/api_call.dart';
+import 'controller/api_call_provider.dart';
 
 void main() {
+ 
   runApp(const MyApp());
 }
 

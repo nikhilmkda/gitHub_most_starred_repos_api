@@ -27,7 +27,7 @@ class UserTile extends StatelessWidget {
               spreadRadius: 2,
               blurRadius: 4,
               offset:
-                  Offset(0, 2), // You can adjust the shadow offset as needed
+                  const Offset(0, 2), 
             ),
           ],
           gradient: const LinearGradient(
@@ -57,8 +57,8 @@ class UserTile extends StatelessWidget {
                         color: Colors.black.withOpacity(0.2),
                         spreadRadius: 2,
                         blurRadius: 4,
-                        offset: Offset(
-                            0, 2), // You can adjust the shadow offset as needed
+                        offset:const Offset(
+                            0, 2), 
                       ),
                     ],
                   ),
@@ -67,7 +67,7 @@ class UserTile extends StatelessWidget {
                     radius: 50,
                   ),
                 ),
-                SizedBox(
+             const   SizedBox(
                   width: 25,
                 ),
                 Column(
@@ -78,7 +78,7 @@ class UserTile extends StatelessWidget {
                       width: 200,
                       child: Text(
                         repoName,
-                        style: TextStyle(
+                        style:const TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.bold,
                             color: Colors.white),
@@ -86,32 +86,32 @@ class UserTile extends StatelessWidget {
                         maxLines: 1,
                       ),
                     ),
-                    SizedBox(
+                 const   SizedBox(
                       height: 5,
                     ),
                     Text(
                       userName,
-                      style: TextStyle(
+                      style:const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                           color: Colors.white70),
                     ),
-                    SizedBox(
+                const    SizedBox(
                       height: 5,
                     ),
                     Row(
                       children: [
-                        Icon(
+                  const      Icon(
                           Icons.star,
                           size: 25,
                           color: Colors.yellow,
                         ),
-                        SizedBox(
+                     const   SizedBox(
                           height: 5,
                         ),
                         Text(
                           " $stars Stars",
-                          style: TextStyle(
+                          style:const TextStyle(
                               fontSize: 15,
                               fontWeight: FontWeight.bold,
                               color: Colors.white70),
@@ -122,14 +122,14 @@ class UserTile extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
+       const     SizedBox(
               height: 15,
             ),
             Container(
               decoration: BoxDecoration(
                 color: Colors.black26,
                 borderRadius: BorderRadius.circular(12),
-                boxShadow: [
+                boxShadow:const [
                   BoxShadow(
                     color: Colors.black26,
                     offset: Offset(0, 2),
@@ -142,7 +142,7 @@ class UserTile extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
                     repodescription,
-                    style: TextStyle(
+                    style:const TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
                       color: Colors.white54,
