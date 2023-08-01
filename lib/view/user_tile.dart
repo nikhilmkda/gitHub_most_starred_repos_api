@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
-
+/// A custom widget to display information about a GitHub repository.
 class UserTile extends StatelessWidget {
   final String repoName;
   final String repodescription;
   final int stars;
   final String userName;
   final String userAvatar;
+   /// Creates a [UserTile] widget.
+  ///
+  /// The widget takes the following parameters:
+  ///
+  /// - [repoName]: The name of the GitHub repository.
+  /// - [repodescription]: The description of the GitHub repository.
+  /// - [stars]: The number of stars the GitHub repository has.
+  /// - [userName]: The username of the owner of the GitHub repository.
+  /// - [userAvatar]: The URL of the user's avatar image.
   const UserTile(
       {super.key,
       required this.repoName,
@@ -16,6 +25,7 @@ class UserTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     // The widget's UI code here...
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
@@ -26,8 +36,7 @@ class UserTile extends StatelessWidget {
               color: Colors.black.withOpacity(0.2),
               spreadRadius: 2,
               blurRadius: 4,
-              offset:
-                  const Offset(0, 2), 
+              offset: const Offset(0, 2),
             ),
           ],
           gradient: const LinearGradient(
@@ -37,6 +46,10 @@ class UserTile extends StatelessWidget {
             ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
+          ),
+          border: Border.all(
+            color: Colors.white,
+            width: 2.0,
           ),
         ),
         child: Padding(
@@ -57,8 +70,7 @@ class UserTile extends StatelessWidget {
                         color: Colors.black.withOpacity(0.2),
                         spreadRadius: 2,
                         blurRadius: 4,
-                        offset:const Offset(
-                            0, 2), 
+                        offset: const Offset(0, 2),
                       ),
                     ],
                   ),
@@ -67,7 +79,7 @@ class UserTile extends StatelessWidget {
                     radius: 50,
                   ),
                 ),
-             const   SizedBox(
+                const SizedBox(
                   width: 25,
                 ),
                 Column(
@@ -78,7 +90,7 @@ class UserTile extends StatelessWidget {
                       width: 200,
                       child: Text(
                         repoName,
-                        style:const TextStyle(
+                        style: const TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.bold,
                             color: Colors.white),
@@ -86,32 +98,32 @@ class UserTile extends StatelessWidget {
                         maxLines: 1,
                       ),
                     ),
-                 const   SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
                     Text(
                       userName,
-                      style:const TextStyle(
+                      style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                           color: Colors.white70),
                     ),
-                const    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
                     Row(
                       children: [
-                  const      Icon(
+                        const Icon(
                           Icons.star,
                           size: 25,
                           color: Colors.yellow,
                         ),
-                     const   SizedBox(
+                        const SizedBox(
                           height: 5,
                         ),
                         Text(
                           " $stars Stars",
-                          style:const TextStyle(
+                          style: const TextStyle(
                               fontSize: 15,
                               fontWeight: FontWeight.bold,
                               color: Colors.white70),
@@ -122,27 +134,31 @@ class UserTile extends StatelessWidget {
                 ),
               ],
             ),
-       const     SizedBox(
+            const SizedBox(
               height: 15,
             ),
             Container(
               decoration: BoxDecoration(
                 color: Colors.black26,
                 borderRadius: BorderRadius.circular(12),
-                boxShadow:const [
+                boxShadow: const [
                   BoxShadow(
                     color: Colors.black26,
                     offset: Offset(0, 2),
                     blurRadius: 4,
                   ),
                 ],
+                border: Border.all(
+                  color: Colors.white,
+                  width: 2.0,
+                ),
               ),
               child: Center(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
                     repodescription,
-                    style:const TextStyle(
+                    style: const TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
                       color: Colors.white54,

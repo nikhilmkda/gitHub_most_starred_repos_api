@@ -3,6 +3,7 @@ import 'package:github_repos_starred/view/user_tile.dart';
 import 'package:provider/provider.dart';
 import '../controller/api_call_provider.dart';
 
+/// A screen that displays a list of the most starred GitHub repositories.
 class GithubReposScreen extends StatefulWidget {
   const GithubReposScreen({super.key});
 

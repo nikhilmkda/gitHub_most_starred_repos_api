@@ -4,6 +4,8 @@ import 'package:http/http.dart' as http;
 import '../model/github_api.dart';
 import '../model/sqflite_database.dart';
 
+/// A provider class responsible for fetching GitHub repositories data
+/// and managing the state of the application related to repositories.
 class GithubProvider extends ChangeNotifier {
   List<GithubRepo> _repos = [];
   List<GithubRepo> get repos => _repos;
@@ -11,6 +13,14 @@ class GithubProvider extends ChangeNotifier {
   bool _isLoading = false;
   bool get isLoading => _isLoading;
 
+  /// Fetches GitHub repositories data from the API or SQLite database.
+  ///
+  /// If data exists in the local SQLite database, it will be used to populate
+  /// the [_repos] list. Otherwise, it makes an API call to GitHub to fetch
+  /// the most popular repositories created within the last 30 days and saves
+  /// the data to SQLite for future use.
+  ///
+  /// Throws an [Exception] if there is a failure in fetching or saving data.
   Future<void> fetchRepos() async {
     _isLoading = true;
     notifyListeners();

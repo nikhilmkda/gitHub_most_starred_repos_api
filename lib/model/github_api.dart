@@ -1,3 +1,6 @@
+
+//this class is used to get required details from the api
+
 class GithubRepo {
   final String name;
   final String description;
