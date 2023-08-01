@@ -1,41 +1,69 @@
 import 'package:flutter/material.dart';
+import 'package:github_repos_starred/view/user_tile.dart';
 import 'package:provider/provider.dart';
-
 import '../controller/api_call.dart';
-class HomePage extends StatelessWidget {
+
+class GithubReposScreen extends StatefulWidget {
+  @override
+  _GithubReposScreenState createState() => _GithubReposScreenState();
+}
+
+class _GithubReposScreenState extends State<GithubReposScreen> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Provider.of<GithubProvider>(context, listen: false).fetchRepos();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<StarredRepositoriesProvider>(context);
-
+    final repos = Provider.of<GithubProvider>(context).repos;
+    final isLoading = Provider.of<GithubProvider>(context).isLoading;
     return Scaffold(
+      backgroundColor: Colors.black87,
       appBar: AppBar(
-        title: Text('Most Starred Repos'),
-      ),
-      body: Center(
-        child: FutureBuilder(
-          future: provider.fetchStarredRepositories(),
-          builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return CircularProgressIndicator();
-            } else if (snapshot.hasError) {
-              return Text('Error: ${snapshot.error}');
-            } else {
-              final starredRepositories = provider.starredRepositories;
-              return ListView.builder(
-                itemCount: starredRepositories.length,
-                itemBuilder: (context, index) {
-                  final repository = starredRepositories[index];
-                  return ListTile(
-                    title: Text(repository.name),
-                    subtitle: Text(repository.description ?? ''),
-                    trailing: Text('${repository.stargazersCount} stars'),
-                  );
-                },
-              );
-            }
-          },
+        centerTitle: true,
+        title: const Text(
+          'Most Starred GitHub Repos',
+          style: TextStyle(
+              fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white70),
         ),
+        backgroundColor: Colors.black87,
       ),
+      body: isLoading
+          ? const Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CircularProgressIndicator(),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    "Your data is getting ready...",
+                    style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white70),
+                  )
+                ],
+              ),
+            )
+          : ListView.builder(
+              itemCount: repos.length,
+              itemBuilder: (context, index) {
+                final repo = repos[index];
+
+                return UserTile(
+                    repoName: repo.name,
+                    repodescription: repo.description,
+                    stars: repo.stars,
+                    userName: repo.owner.username,
+                    userAvatar: repo.owner.avatarUrl);
+              },
+            ),
     );
   }
 }
