@@ -1,4 +1,4 @@
-GitHub Repos Starred App
+#GitHub Repos Starred App
 
 GitHub Repos Starred is a mobile application developed using Flutter that allows users to view a list of the most starred GitHub repositories created within the last 30 days. The app fetches the data from the GitHub API and stores it in a local SQLite database to provide offline access to the repositories.
 
