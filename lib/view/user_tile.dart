@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+
 /// A custom widget to display information about a GitHub repository.
-class UserTile extends StatelessWidget {
+class UserDetailsTile extends StatelessWidget {
   final String repoName;
   final String repodescription;
   final int stars;
   final String userName;
   final String userAvatar;
-   /// Creates a [UserTile] widget.
+
+  /// Creates a [UserTile] widget.
   ///
   /// The widget takes the following parameters:
   ///
@@ -15,7 +17,7 @@ class UserTile extends StatelessWidget {
   /// - [stars]: The number of stars the GitHub repository has.
   /// - [userName]: The username of the owner of the GitHub repository.
   /// - [userAvatar]: The URL of the user's avatar image.
-  const UserTile(
+  const UserDetailsTile(
       {super.key,
       required this.repoName,
       required this.repodescription,
@@ -25,7 +27,7 @@ class UserTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     // The widget's UI code here...
+    // The widget's UI code here...
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
@@ -41,15 +43,15 @@ class UserTile extends StatelessWidget {
           ],
           gradient: const LinearGradient(
             colors: [
-              Color(0xFF66A9F2),
-              Color(0xFF5367A4),
+              Color.fromARGB(255, 0, 23, 48),
+              Color.fromARGB(255, 0, 12, 48),
             ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
           border: Border.all(
-            color: Colors.white,
-            width: 2.0,
+            color: const Color.fromARGB(255, 1, 61, 213),
+            width: 3.0,
           ),
         ),
         child: Padding(

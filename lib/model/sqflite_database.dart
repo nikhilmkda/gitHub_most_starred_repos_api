@@ -1,13 +1,14 @@
 import 'dart:async';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
+import 'package:github_repos_starred/model/github_api_modeldart';
 
-import 'github_api.dart';
 
-/// A helper class responsible for managing the SQLite database operations
+/// A helper class responsible for managing the sqflite database operations
 /// related to storing and retrieving GitHub repositories data.
 class DatabaseHelper {
   static Database? _database;
+  
 
   /// Retrieves the database instance asynchronously.
   ///
@@ -20,7 +21,7 @@ class DatabaseHelper {
     return _database!;
   }
 
-  /// Initializes the SQLite database and creates the necessary table.
+  /// Initializes the sqflite database and creates the necessary table.
   ///
   /// It opens the database and executes a SQL command to create a table
   /// named 'GithubRepositories' with required columns.
@@ -46,7 +47,7 @@ class DatabaseHelper {
     );
   }
 
-  /// Inserts a single [GithubRepo] object into the SQLite database table named 'GithubRepositories'.
+  /// Inserts a single [GithubRepo] object into the sqflite database table named 'GithubRepositories'.
   ///
   /// The method takes a [repo] parameter representing the [GithubRepo] object to be inserted.
   Future<void> insertRepository(GithubRepo repo) async {
@@ -63,7 +64,7 @@ class DatabaseHelper {
     );
   }
 
-  /// Retrieves a list of [GithubRepo] objects from the SQLite database.
+  /// Retrieves a list of [GithubRepo] objects from the sqflite database.
   ///
   /// The method queries the 'GithubRepositories' table and maps the retrieved data
   /// to a list of [GithubRepo] objects.
@@ -84,7 +85,7 @@ class DatabaseHelper {
     });
   }
 
-  /// Saves a list of [GithubRepo] objects to the SQLite database.
+  /// Saves a list of [GithubRepo] objects to the sqflite database.
   ///
   /// The method clears the existing data in the 'GithubRepositories' table
   /// and inserts each [GithubRepo] object from the provided [repos] list.

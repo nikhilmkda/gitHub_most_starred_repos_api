@@ -8,6 +8,7 @@ class GithubReposScreen extends StatefulWidget {
   const GithubReposScreen({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _GithubReposScreenState createState() => _GithubReposScreenState();
 }
 
@@ -59,7 +60,7 @@ class _GithubReposScreenState extends State<GithubReposScreen> {
               itemBuilder: (context, index) {
                 final repo = repos[index];
 
-                return UserTile(
+                return UserDetailsTile(
                     repoName: repo.name,
                     repodescription: repo.description,
                     stars: repo.stars,

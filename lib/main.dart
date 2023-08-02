@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import 'controller/api_call_provider.dart';
 
 void main() {
- 
   runApp(const MyApp());
 }
 
@@ -15,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (_) => GithubProvider(),
-      child: MaterialApp(
+      child: const MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Github Repos',
         home: GithubReposScreen(),
