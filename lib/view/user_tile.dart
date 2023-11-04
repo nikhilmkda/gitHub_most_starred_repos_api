@@ -88,7 +88,6 @@ class UserDetailsTile extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
-                      height: 30,
                       width: 200,
                       child: Text(
                         repoName,
@@ -103,12 +102,17 @@ class UserDetailsTile extends StatelessWidget {
                     const SizedBox(
                       height: 5,
                     ),
-                    Text(
-                      userName,
-                      style: const TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white70),
+                    SizedBox(
+                      width: 200,
+                      child: Text(
+                        userName,
+                        style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white70),
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
+                      ),
                     ),
                     const SizedBox(
                       height: 5,
@@ -140,6 +144,7 @@ class UserDetailsTile extends StatelessWidget {
               height: 15,
             ),
             Container(
+              width: double.infinity,
               decoration: BoxDecoration(
                 color: Colors.black26,
                 borderRadius: BorderRadius.circular(12),
@@ -164,6 +169,7 @@ class UserDetailsTile extends StatelessWidget {
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
                       color: Colors.white54,
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                 ),
